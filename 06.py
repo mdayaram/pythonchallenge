@@ -1,6 +1,8 @@
 # http://pythonchallenge.com/pc/def/channel.html
-# Change the URL to have an extension of zip and download
-# and unzip that file.  The contents are in the 06 directory.
+# Comments in the page use the word zip.  Changing the
+# current URL extension to .zip instead of .html lets
+# us download a zip file containing many text files of
+# the format 1234.txt and also a readme.txt.
 import zipfile
 import requests
 import io
@@ -14,8 +16,11 @@ def open_zipfile():
   bytes = io.BytesIO(r.content)
   return zipfile.ZipFile(bytes)
 
-def linked_list():
-  archive = open_zipfile()
+def print_readme(archive):
+  text = archive.read("readme.txt").decode("utf-8")
+  print(text)
+
+def linked_list(archive):
   num = "90052"
   while True:
     filename = num + ".txt"
@@ -25,8 +30,7 @@ def linked_list():
       print(text)
       return text
 
-def zip_comments_inorder():
-  archive = open_zipfile()
+def zip_comments_inorder(archive):
   num = "90052"
   while True:
     filename = num + ".txt"
@@ -37,7 +41,9 @@ def zip_comments_inorder():
     if not num.isnumeric():
       return
 
-linked_list()
-zip_comments_inorder()
+archive = open_zipfile()
+print_readme(archive)
+linked_list(archive)
+zip_comments_inorder(archive)
 
 # Answer is printed in ascii art: hockey
