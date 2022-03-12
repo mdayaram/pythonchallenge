@@ -46,4 +46,4 @@ print_readme(archive)
 linked_list(archive)
 zip_comments_inorder(archive)
 
-# Answer is printed in ascii art: hockey
+# Answer is the letters that make up the ascii art: oxygen

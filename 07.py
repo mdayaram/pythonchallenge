@@ -1,1 +1,1 @@
-# http://www.pythonchallenge.com/pc/def/hockey.html
+# http://www.pythonchallenge.com/pc/def/oxygen.html
